@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 const InputTodo = ({ addTodoItem }) => {
   const [title, setTitle] = useState('');
+  const [message, setMessage] = useState('');
 
   const handleChange = (e) => {
     setTitle(e.target.value);
@@ -13,21 +14,25 @@ const InputTodo = ({ addTodoItem }) => {
     if (title.trim()) {
       addTodoItem(title);
       setTitle('');
+      setMessage('');
     } else {
-      alert('Please add an item');
+      setMessage('Please add an item');
     }
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        placeholder="Add Todo..."
-        value={title}
-        onChange={handleChange}
-      />
-      <button>Submit</button>
-    </form>
+    <>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          placeholder="Add Todo..."
+          value={title}
+          onChange={handleChange}
+        />
+        <button>Submit</button>
+      </form>
+      <span>{message}</span>
+    </>
   );
 };
 
