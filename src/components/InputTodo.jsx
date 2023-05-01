@@ -10,8 +10,12 @@ const InputTodo = ({ addTodoItem }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addTodoItem(title);
-    setTitle('');
+    if (title.trim()) {
+      addTodoItem(title);
+      setTitle('');
+    } else {
+      alert('Please add an item');
+    }
   }
 
   return (
