@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-const TodoItem = ({ itemProp, setTodos }) => {
+const TodoItem = ({ itemProp, setTodos, delTodo }) => {
   const handleChange = (id) => {
     setTodos((prevState) =>
       prevState.map((todo) => {
@@ -21,7 +21,8 @@ const TodoItem = ({ itemProp, setTodos }) => {
       type="checkbox"
       checked={itemProp.completed}
       onChange={() => handleChange(itemProp.id)}
-      />
+    />
+    <button onClick={() => delTodo(itemProp.id)}>Delete</button>
     {itemProp.title}
   </li>
   );
@@ -32,4 +33,5 @@ export default TodoItem;
 TodoItem.propTypes = {
   itemProp: PropTypes.object.isRequired,
   setTodos: PropTypes.func,
+  delTodo: PropTypes.func
 }
