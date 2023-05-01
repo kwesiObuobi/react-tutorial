@@ -8,8 +8,14 @@ const InputTodo = ({ addTodoItem }) => {
     setTitle(e.target.value);
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    addTodoItem(title);
+    setTitle('');
+  }
+
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <input
         type="text"
         placeholder="Add Todo..."
