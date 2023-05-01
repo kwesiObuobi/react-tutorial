@@ -1,3 +1,5 @@
+import styles from "@/styles/Header.module.css";
+
 const Header = () => {
   return (
     <header
@@ -7,6 +9,7 @@ const Header = () => {
         color: '#aeadad',
         textAlign: 'center',
       }}
+      className={styles.header}
     >
       <h1>todos</h1>
       <p>Items will persist in the browser local storage</p>
